@@ -1,0 +1,46 @@
+# Balanced Brackets 
+
+Given a string of brackets, determine if the brackets are valid (have openings and closings in the right spots)
+
+## Solution 
+
+
+Create an object with keys as the opening brackets and values as the closing brackets. 
+
+```
+let brackets = {
+    "(" : ")", 
+    "{" : "}", 
+    "[" : "]"
+  }
+```
+
+Create a stack to hold the current value. 
+
+```
+ const stack = []
+let current; 
+ ```
+
+Iterate through the string. Push the current value onto the stack. Then pop the current value, if it is the matching value. 
+
+```
+  for(let i = 0; i < string.length ; i++){
+      let current = string[i] 
+      if(brackets[current]){
+        stack.push(brackets[current])
+```
+
+If the pairs do not match, return false. 
+
+```
+ if (current !== stack.pop()){
+          return false
+        }
+```
+
+If the stack length is zero, then all the values were popped off, and the bracket string is valid.
+
+```
+return stack.length === 0
+```
